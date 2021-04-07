@@ -5,7 +5,7 @@
         <aside id="sidebar-wrapper">
             <!-- sidebar brand -->
             <div class="sidebar-brand">
-                <a href="{{ route('welcome') }}">{{ config('app.name', 'Laravel') }}</a>
+                <a href="{{ route('welcome') }}">{{ config('app.name', 'Laundry') }}</a>
             </div>
             <!-- sidebar menu -->
             <ul class="sidebar-menu">

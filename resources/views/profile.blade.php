@@ -8,7 +8,7 @@
   lead="Change information about yourself on this page." />
 
 <div class="row mt-sm-4">
-  <div class="col-12 col-md-12 col-lg-5">
+  {{-- <div class="col-12 col-md-12 col-lg-5">
     <div class="card profile-widget">
       <div class="profile-widget-header">
         <img alt="image" src="{{ auth()->user()->avatar_url }}" class="rounded-circle profile-widget-picture">
@@ -55,8 +55,8 @@
     @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
     @include('profile.two-factor-authentication-form')
     @endif
-  </div>
-  <div class="col-12 col-md-12 col-lg-7">
+  </div> --}}
+  <div class="col-12 col-md-6 col-lg-6">
     @if (session('status'))
     <div class="alert alert-primary alert-dismissible show fade">
       <div class="alert-body">

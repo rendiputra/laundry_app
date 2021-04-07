@@ -84,7 +84,7 @@
                 <a href="{{ route('login') }}">{{ __('Already registered?') }}</a>
             </div>
             <div class="simple-footer">
-                Copyright © Stisla 2018
+                Copyright © Stisla 2021
             </div>
         </div>
     </div>

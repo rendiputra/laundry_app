@@ -19,5 +19,5 @@ Route::middleware('auth', 'verified')->group(function () {
 	Route::view('dashboard', 'dashboard')->name('dashboard');
 	Route::view('profile', 'profile')->name('profile');
 
-	Route::get('/pelanggan', 'HomeController@pelanggan')->name('pelanggan');
+	Route::get('/pelanggan', 'App\Http\Controllers\HomeController@pelanggan')->name('pelanggan');
 });
