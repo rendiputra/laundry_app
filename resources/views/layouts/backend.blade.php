@@ -28,6 +28,9 @@
         <section class="section">
           @yield('content')
         </section>
+        <div class="simple-footer">
+          Copyright ©2021
+        </div>
       </div>
     </div>
   </div>

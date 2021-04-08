@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="simple-footer">
-                Copyright © Stisla 2018
+                Copyright ©2021
             </div>
         </div>
     </div>

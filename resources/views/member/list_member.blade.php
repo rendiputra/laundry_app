@@ -18,6 +18,24 @@
           <h4>List Pelanggan</h4>
         </div>
         <div class="card-body">
+          <a href="{{route('createPelanggan')}}" class="btn btn-primary mb-4">Input Pelanggan </a>
+          
+@if (\Session::has('error'))
+          <div class="alert alert-warning alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Peringatan!</strong> {{\Session::get('error')}}
+          </div>
+@elseif (\Session::has('sukses'))
+          <div class="alert alert-info alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Sukses!</strong> {{\Session::get('sukses')}}
+          </div>
+@elseif (\Session::has('invalid'))
+          <div class="alert alert-danger alert-dismissible">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Invalid!</strong> {{\Session::get('invalid')}}
+          </div>
+@endif
           <div class="table-responsive">
             <table class="table table-bordered table-md">
               <thead>
@@ -32,49 +50,37 @@
 
 @if (!empty($jml))
   @foreach ($data as $d)
-
               <tr>
                 <td>{{$d->nama}}</td>
                 <td>{{substr($d->alamat, 0, 100)}}</td>
                 <td>{{$d->tlp}}</td>
                 <td>
-                  <a href="#" class="btn btn-primary">Update</a>
-                  <a href="#" class="btn btn-warning">Delete</a>
+                  <a href="{{route('updatePelanggan', $d->id_member)}}" class="btn btn-primary">Update</a>
+                  <form method="POST" action="{{route('deletePelanggan',$d->id_member)}}">
+                    @csrf
+                    @method('delete')
+                    <button type="submit"  class="btn btn-danger mt-2">Delete</button>
+                  </form>
                 </td>
               </tr>
 
+
+              
   @endforeach
 @else
               <tr>
                 <th colspan="4" class="text-center">--- Tidak ada data ---</th>
               </tr> 
 @endif
+
               </tbody>
             </table>
           </div>
         </div>
-        <div class="card-footer text-right">
-          <nav class="d-inline-block">
-            <ul class="pagination mb-0">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-              </li>
-              <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">2</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-              </li>
-            </ul>
-          </nav>
+        <div class="d-flex justify-content-center">
+          {!! $data->links() !!}
         </div>
-      </div>
     </div>
-
-    
-    
-    </div>
+  </div>
 </div>
 @endsection

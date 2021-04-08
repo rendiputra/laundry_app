@@ -10,7 +10,7 @@
             <!-- sidebar menu -->
             <ul class="sidebar-menu">
                 <!-- menu header -->
-                <li class="menu-header">General</li>
+                <li class="menu-header">MENU</li>
                 <!-- menu item -->
                 <li class="{{ Route::is('dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}">
@@ -18,8 +18,8 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="{{ Route::is('pelanggan') ? 'active' : '' }}">
-                    <a href="{{ route('pelanggan') }}">
+                <li class="{{ Route::is('getPelanggan', 'createPelanggan', 'updatePelanggan') ? 'active' : '' }}">
+                    <a href="{{ route('getPelanggan') }}">
                         <i class="fas fa-fire"></i>
                         <span>Pelanggan</span>
                     </a>
