@@ -1,21 +1,22 @@
 @extends('layouts.backend')
 
-@section('title', 'List Pelanggan')
+@section('title', 'List Outlet')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h4>Pelanggan</h4>
-    </div>
+        <h4>Outlet</h4>
+    </div>  
 </div>
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
       <div class="card shadow">
         <div class="card-header">
-          <h4>List Pelanggan</h4>
+          <h4>List Outlet</h4>
         </div>
         <div class="card-body">
-          <a href="{{route('createPelanggan')}}" class="btn btn-primary mb-4">Input Pelanggan </a>   
+          <a href="{{route('createOutlet')}}" class="btn btn-primary mb-4">Input Outlet </a>
+          
 @if (\Session::has('error'))
           <div class="alert alert-warning alert-dismissible">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -50,20 +51,21 @@
                 <td>{{substr($d->alamat, 0, 200)}}</td>
                 <td>{{$d->tlp}}</td>
                 <td>
-                  <a href="{{route('updatePelanggan', $d->id_member)}}" class="btn btn-primary">Update</a>
-                  <form method="POST" action="{{route('deletePelanggan',$d->id_member)}}">
+                  <a href="{{route('updateOutlet', $d->id_outlet)}}" class="btn btn-primary">Update</a>
+                  <form method="POST" action="{{route('deleteOutlet',$d->id_outlet)}}">
                     @csrf
                     @method('delete')
                     <button type="submit"  class="btn btn-danger mt-2">Delete</button>
                   </form>
                 </td>
-              </tr>   
+              </tr>
   @endforeach
 @else
               <tr>
                 <th colspan="4" class="text-center">--- Tidak ada data ---</th>
               </tr> 
 @endif
+
               </tbody>
             </table>
           </div>

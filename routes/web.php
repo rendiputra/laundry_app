@@ -28,6 +28,13 @@ Route::middleware('auth', 'verified')->group(function () {
 	Route::delete('/pelanggan/delete/{id}', 'App\Http\Controllers\MemberController@deletePelanggan')->name('deletePelanggan');
 
 	// module outlet
+	Route::get('/outlet', 'App\Http\Controllers\OutletController@getOutlet')->name('getOutlet');
+	Route::get('/outlet/update/{id}', 'App\Http\Controllers\OutletController@updateOutlet')->name('updateOutlet');
+	Route::post('/outlet/update/{id}', 'App\Http\Controllers\OutletController@updateOutletAction')->name('updateOutletAction');
+	Route::get('/outlet/create/', 'App\Http\Controllers\OutletController@createOutlet')->name('createOutlet');
+	Route::post('/outlet/create/', 'App\Http\Controllers\OutletController@createOutletAction')->name('createOutletAction');
+	Route::delete('/outlet/delete/{id}', 'App\Http\Controllers\OutletController@deleteOutlet')->name('deleteOutlet');
+	
 	// module produk
 	// module pengguna
 });

@@ -1,7 +1,8 @@
 # laundry_app
 
 Soal Ujian Kompetensi Keahlian SMK RPL Tahun 2020 : [Lihat Disini](https://docs.google.com/document/d/1lAskWGNuy75HYMhdJVQprNRZEUAYRnooDvTHq_QHdkc/edit?usp=sharing)
-Cara Instalasi:
+
+## Cara Instalasi:
 ### 1. Dumping db db_laundry.sql
 
 ### 2. Configurasi env

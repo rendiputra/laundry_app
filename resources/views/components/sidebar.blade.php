@@ -20,8 +20,14 @@
                 </li>
                 <li class="{{ Route::is('getPelanggan', 'createPelanggan', 'updatePelanggan') ? 'active' : '' }}">
                     <a href="{{ route('getPelanggan') }}">
-                        <i class="fas fa-fire"></i>
+                        <i class="fas fa-users"></i>
                         <span>Pelanggan</span>
+                    </a>
+                </li>
+                <li class="{{ Route::is('getOutlet', 'createOutlet', 'updateOutlet') ? 'active' : '' }}">
+                    <a href="{{ route('getOutlet') }}">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Outlet</span>
                     </a>
                 </li>
                 <li class="{{ Route::is('profile') ? 'active' : '' }}">
