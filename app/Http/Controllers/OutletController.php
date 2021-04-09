@@ -94,6 +94,7 @@ class OutletController extends Controller
             return redirect()->route('getOutlet')->with('error','Gagal input data outlet.');
         }
     }
+<<<<<<< HEAD
 
     public function deleteOutlet($id)
     {
@@ -105,4 +106,6 @@ class OutletController extends Controller
             ]);
         return redirect()->route('getOutlet')->with('sukses','Sukses delete data outlet.');
     }
+=======
+>>>>>>> parent of b80a788... create delete outlet
 }
