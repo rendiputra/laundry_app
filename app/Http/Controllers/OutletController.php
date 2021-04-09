@@ -70,4 +70,28 @@ class OutletController extends Controller
             return redirect()->route('getOutlet')->with('invalid','Permintaan tidak valid');
         }
     }
+
+    public function createOutlet(){
+        return view('outlet.outlet_input');
+    }
+
+    public function createOutletAction(Request $req)
+    {
+        $req->validate([
+            'nama' => 'required|max:100',
+            'alamat' => 'required',
+            'notelp' => 'required|numeric',
+        ]);
+
+        $data = new Outlet;
+        $data->nama = $req->nama;
+        $data->alamat = $req->alamat;
+        $data->tlp = $req->notelp;
+
+        if ($data->save()){
+            return redirect()->route('getOutlet')->with('sukses','Berhasil input data outlet.');
+        }else{
+            return redirect()->route('getOutlet')->with('error','Gagal input data outlet.');
+        }
+    }
 }
