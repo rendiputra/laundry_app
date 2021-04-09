@@ -29,4 +29,45 @@ class OutletController extends Controller
             'jml' => $jml,
         ]);
     }
+
+    public function updateOutlet($id)
+    {
+        $data = DB::table('tb_Outlet')
+                ->where([
+                    ['id_outlet', '=', $id],
+                    ['status', '=', 1],
+                ])->first();
+        if (!empty($data)){
+            return view('outlet.outlet_edit', ['data'=>$data]);
+        }else{
+            return redirect()->route('getOutlet')->with('error','Permintaan tidak valid!');
+        }
+    }
+
+    public function updateOutletAction($id, Request $req)
+    {
+        $req->validate([
+            'id_' => 'required',
+            'nama' => 'required|max:100',
+            'alamat' => 'required',
+            'notelp' => 'required|numeric',
+        ]);
+        if ($id == $req->id_){
+            $update = DB::table('tb_outlet')
+                    ->where([
+                        ['id_outlet', '=', $id],
+                    ])->update([
+                        'nama' => $req->nama,
+                        'alamat' => $req->alamat,
+                        'tlp' => $req->notelp,
+                    ]);
+            if($update){
+                return redirect()->route('getOutlet')->with('sukses','Berhasil update data outlet.');
+            }else{
+                return redirect()->route('getOutlet')->with('error','Gagal update data outlet.');
+            }
+        } else {
+            return redirect()->route('getOutlet')->with('invalid','Permintaan tidak valid');
+        }
+    }
 }
