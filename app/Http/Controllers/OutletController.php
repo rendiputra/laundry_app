@@ -94,4 +94,15 @@ class OutletController extends Controller
             return redirect()->route('getOutlet')->with('error','Gagal input data outlet.');
         }
     }
+
+    public function deletePelanggan($id)
+    {
+        $update = DB::table('tb_outlet')
+            ->where([
+                ['id_member', '=', $id],
+            ])->update([
+                'status' => 0,
+            ]);
+        return redirect()->route('getOutlet')->with('sukses','Sukses delete data outlet.');
+    }
 }
