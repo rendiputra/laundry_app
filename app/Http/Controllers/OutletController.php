@@ -95,11 +95,11 @@ class OutletController extends Controller
         }
     }
 
-    public function deletePelanggan($id)
+    public function deleteOutlet($id)
     {
         $update = DB::table('tb_outlet')
             ->where([
-                ['id_member', '=', $id],
+                ['id_outlet', '=', $id],
             ])->update([
                 'status' => 0,
             ]);
