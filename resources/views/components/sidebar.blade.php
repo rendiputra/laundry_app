@@ -18,6 +18,12 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <li class="{{ Route::is('getPaket', 'createPaket', 'updatePaket') ? 'active' : '' }}">
+                    <a href="{{ route('getPaket') }}">
+                        <i class="fas fa-tags"></i>
+                        <span>Paket Cucian</span>
+                    </a>
+                </li>
                 <li class="{{ Route::is('getPelanggan', 'createPelanggan', 'updatePelanggan') ? 'active' : '' }}">
                     <a href="{{ route('getPelanggan') }}">
                         <i class="fas fa-users"></i>
@@ -30,12 +36,12 @@
                         <span>Outlet</span>
                     </a>
                 </li>
-                <li class="{{ Route::is('profile') ? 'active' : '' }}">
+                {{-- <li class="{{ Route::is('profile') ? 'active' : '' }}">
                     <a href="{{ route('profile') }}">
                         <i class="fas fa-user"></i>
                         <span>Profile</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </aside>
     </div>

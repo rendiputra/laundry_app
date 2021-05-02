@@ -1,21 +1,21 @@
 @extends('layouts.backend')
 
-@section('title', 'List Outlet')
+@section('title', 'Paket Produk')
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h4>Outlet</h4>
+        <h4>Paket Produk</h4>
     </div>  
 </div>
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
       <div class="card shadow">
         <div class="card-header">
-          <h4>List Outlet</h4>
+          <h4>List Paket Produk</h4>
         </div>
         <div class="card-body">
-          <a href="{{route('createOutlet')}}" class="btn btn-primary mb-4">Input Outlet </a>
+          <a href="{{route('createPaket')}}" class="btn btn-primary mb-4">Input Paket Produk</a>
           
 @if (\Session::has('error'))
           <div class="alert alert-warning alert-dismissible">
@@ -34,28 +34,31 @@
           </div>
 @endif
           <div class="table-responsive">
-            <table class="table table-bordered table-md">
+            <table class="table table-bordered table-md bg-white">
               <thead>
               <tr>
-                <th>Nama</th>
-                <th>Alamat</th>
-                <th>No Telepon</th>
-                <th>Action</th>
+                <th style="width: 40%">Nama Paket</th>
+                <th style="width: 15%">Jenis</th>
+                <th style="width: 15%">Harga</th>
+                <th style="width: 20%">Action</th>
               </tr>
               </thead>
               <tbody>
 @if (!empty($jml))
   @foreach ($data as $d)
               <tr>
-                <td>{{$d->nama}}</td>
-                <td>{{substr($d->alamat, 0, 200)}}</td>
-                <td>{{$d->tlp}}</td>
+                <td>{{$d->nama_paket}}</td>
+                <td>{{$d->jenis}}</td>
+                <td>{{$d->harga}}</td>
                 <td>
-                  <form class="row" method="POST" action="{{route('deleteOutlet',$d->id_outlet)}}">
-                    <a href="{{route('updateOutlet', $d->id_outlet)}}" class="btn btn-primary mt-1 mr-2">Update</a>
-                    @csrf
-                    @method('delete')
-                    <button type="submit"  class="btn btn-danger mt-1">Delete</button>
+                    {{-- <div class="row">
+                        
+                    </div> --}}
+                    <form class="row" method="POST" action="{{route('deletePaket',$d->id_paket)}}">
+                        <a href="{{route('updatePaket', $d->id_paket)}}" class="btn btn-primary mt-1 ml-3">Update</a>
+                        @csrf
+                        @method('delete')
+                        <button type="submit"  class="btn btn-danger ml-3 mt-1">Delete</button>
                   </form>
                 </td>
               </tr>

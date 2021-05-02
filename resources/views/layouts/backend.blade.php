@@ -29,7 +29,7 @@
           @yield('content')
         </section>
         <div class="simple-footer">
-          Copyright ©2021
+          Copyright &copy;{{date("Y")}}
         </div>
       </div>
     </div>

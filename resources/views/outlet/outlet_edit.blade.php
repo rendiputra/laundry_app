@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
                 @csrf
-                <input type="hidden" name="id_" value="{{$data->id_outlet}}">
+                <input type="hidden" name="_id" value="{{Hash::make($data->id_outlet)}}">
                 <div class="form-group">
                 <label>Nama</label>
                 <input type="text" name="nama" class="form-control" value="{{$data->nama}}" required="" placeholder="Contoh: Kencana Laundry">

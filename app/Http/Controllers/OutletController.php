@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use Validator;
+use Hash;
 
 use App\models\Outlet;
 
@@ -47,12 +48,14 @@ class OutletController extends Controller
     public function updateOutletAction($id, Request $req)
     {
         $req->validate([
-            'id_' => 'required',
+            '_id' => 'required',
             'nama' => 'required|max:100',
             'alamat' => 'required',
             'notelp' => 'required|numeric',
         ]);
-        if ($id == $req->id_){
+
+        // validasi id_outlet
+        if (Hash::check($id, $req->_id)){
             $update = DB::table('tb_outlet')
                     ->where([
                         ['id_outlet', '=', $id],
@@ -100,6 +103,7 @@ class OutletController extends Controller
         $update = DB::table('tb_outlet')
             ->where([
                 ['id_outlet', '=', $id],
+                ['status', '=', 1],
             ])->update([
                 'status' => 0,
             ]);

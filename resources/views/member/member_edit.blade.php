@@ -20,18 +20,18 @@
             </div>
             <div class="card-body">
                 @csrf
-                <input type="hidden" name="id_" value="{{$data->id_member}}">
+                <input type="hidden" name="_id" required="" value="{{Hash::make($data->id_member)}}">
                 <div class="form-group">
-                <label>Nama</label>
-                <input type="text" name="nama" class="form-control" value="{{$data->nama}}" required="" placeholder="Contoh: Rendi Putra">
+                    <label>Nama</label>
+                    <input type="text" name="nama" class="form-control" value="{{$data->nama}}" required="" placeholder="Contoh: Rendi Putra">
                 </div>
                 <div class="form-group">
-                <label>Alamat</label>
-                <textarea class="form-control" name="alamat" required="" placeholder="Contoh: Bekasi, Jawa Barat">{{$data->alamat}}</textarea>
+                    <label>Alamat</label>
+                    <textarea class="form-control" name="alamat" required="" placeholder="Contoh: Bekasi, Jawa Barat">{{$data->alamat}}</textarea>
                 </div>
                 <div class="form-group ">
-                <label>No Telepon</label>
-                <input type="number" name="notelp" class="form-control" value="{{$data->tlp}}" required="" placeholder="Contoh: 085600121789">
+                    <label>No Telepon</label>
+                    <input type="number" name="notelp" class="form-control" value="{{$data->tlp}}" required="" placeholder="Contoh: 085600121789">
                 </div>
                 <div class="form-group col-lg-6 mb-0">
                     <label class="form-label">Jenis Kelamin</label>

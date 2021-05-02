@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use Validator;
+use Hash;
 
 use App\models\Member;
 
@@ -47,13 +48,15 @@ class MemberController extends Controller
     public function updatePelangganAction($id, Request $req)
     {
         $req->validate([
-            'id_' => 'required',
+            '_id' => 'required',
             'nama' => 'required|max:100',
             'alamat' => 'required',
             'JK' => 'required',
             'notelp' => 'required|numeric',
         ]);
-        if ($id == $req->id_){
+
+        // validasi id_member
+        if (Hash::check($id, $req->_id)){
             $update = DB::table('tb_member')
                     ->where([
                         ['id_member', '=', $id],

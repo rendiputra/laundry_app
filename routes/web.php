@@ -35,6 +35,14 @@ Route::middleware('auth', 'verified')->group(function () {
 	Route::post('/outlet/create/', 'App\Http\Controllers\OutletController@createOutletAction')->name('createOutletAction');
 	Route::delete('/outlet/delete/{id}', 'App\Http\Controllers\OutletController@deleteOutlet')->name('deleteOutlet');
 	
-	// module produk
+	// module paket
+	Route::get('/paket', 'App\Http\Controllers\PaketController@getPaket')->name('getPaket');
+	Route::get('/paket/update/{id}', 'App\Http\Controllers\PaketController@updatePaket')->name('updatePaket');
+	Route::post('/paket/update/{id}', 'App\Http\Controllers\PaketController@updatePaketAction')->name('updatePaketAction');
+	Route::get('/paket/create/', 'App\Http\Controllers\PaketController@createPaket')->name('createPaket');
+	Route::post('/paket/create/', 'App\Http\Controllers\PaketController@createPaketAction')->name('createPaketAction');
+	Route::delete('/paket/delete/{id}', 'App\Http\Controllers\PaketController@deletePaket')->name('deletePaket');
+
+	
 	// module pengguna
 });

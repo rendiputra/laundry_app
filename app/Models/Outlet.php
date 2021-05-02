@@ -11,5 +11,8 @@ class Outlet extends Model
 
     protected $table = "tb_outlet";
     protected $primaryKey = "id_outlet";
-    protected $guarded = ['id_outlet'];
+    protected $guarded = [
+        'id_outlet',
+        'status'
+    ];
 }
