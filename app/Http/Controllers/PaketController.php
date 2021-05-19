@@ -84,6 +84,14 @@ class PaketController extends Controller
         }
     }
 
+    /**
+     * Update dilakukan jika nilai $id sama dengan nilai yang ada di $req->_id
+     *
+     * @param Integer $id
+     * @param  Illuminate\Http\Request  $req
+     * @var _id Illuminate\Support\Facades\Hash  
+     * @return string
+     */
     public function updatePaketAction($id, Request $req) {
         $validasi = Validator::make($req->all(), [
             '_id' => 'required',

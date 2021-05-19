@@ -45,6 +45,14 @@ class OutletController extends Controller
         }
     }
 
+    /**
+     * Update dilakukan jika nilai $id sama dengan yang ada di $req->_id
+     *
+     * @param Integer $id
+     * @param  \Illuminate\Http\Request  $req
+     * @var _id Illuminate\Support\Facades\Hash  
+     * @return string
+     */
     public function updateOutletAction($id, Request $req)
     {
         $req->validate([
@@ -90,7 +98,6 @@ class OutletController extends Controller
         $data->nama = $req->nama;
         $data->alamat = $req->alamat;
         $data->tlp = $req->notelp;
-
         if ($data->save()){
             return redirect()->route('getOutlet')->with('sukses','Berhasil input data outlet.');
         }else{

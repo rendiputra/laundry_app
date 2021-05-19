@@ -24,6 +24,7 @@
                         <span>Paket Cucian</span>
                     </a>
                 </li>
+                <li class="menu-header">ADMIN</li>
                 <li class="{{ Route::is('getPelanggan', 'createPelanggan', 'updatePelanggan') ? 'active' : '' }}">
                     <a href="{{ route('getPelanggan') }}">
                         <i class="fas fa-users"></i>
@@ -33,7 +34,13 @@
                 <li class="{{ Route::is('getOutlet', 'createOutlet', 'updateOutlet') ? 'active' : '' }}">
                     <a href="{{ route('getOutlet') }}">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Outlet</span>
+                        <span>Cabang Outlet</span>
+                    </a>
+                </li>
+                <li class="{{ Route::is('getPengguna', 'createPengguna', 'updatePengguna') ? 'active' : '' }}">
+                    <a href="{{ route('getPengguna') }}">
+                        <i class="far fa-user"></i>
+                        <span>Pengguna</span>
                     </a>
                 </li>
                 {{-- <li class="{{ Route::is('profile') ? 'active' : '' }}">

@@ -16,33 +16,63 @@ use Illuminate\Support\Facades\Route;
 Route::permanentRedirect('/', '/dashboard')->name('welcome');
 
 Route::middleware('auth', 'verified')->group(function () {
-	Route::view('dashboard', 'dashboard')->name('dashboard');
-	Route::view('profile', 'profile')->name('profile');
+	Route::view('dashboard', 'dashboard')
+			->name('dashboard');
+	Route::view('profile', 'profile')
+			->name('profile');
 
 	// module pelanggan
-	Route::get('/pelanggan', 'App\Http\Controllers\MemberController@getPelanggan')->name('getPelanggan');
-	Route::get('/pelanggan/update/{id}', 'App\Http\Controllers\MemberController@updatePelanggan')->name('updatePelanggan');
-	Route::post('/pelanggan/update/{id}', 'App\Http\Controllers\MemberController@updatePelangganAction')->name('updatePelangganAction');
-	Route::get('/pelanggan/create/', 'App\Http\Controllers\MemberController@createPelanggan')->name('createPelanggan');
-	Route::post('/pelanggan/create/', 'App\Http\Controllers\MemberController@createPelangganAction')->name('createPelangganAction');
-	Route::delete('/pelanggan/delete/{id}', 'App\Http\Controllers\MemberController@deletePelanggan')->name('deletePelanggan');
+	Route::get('/pelanggan', 'App\Http\Controllers\MemberController@getPelanggan')
+			->name('getPelanggan');
+	Route::get('/pelanggan/update/{id}', 'App\Http\Controllers\MemberController@updatePelanggan')
+			->name('updatePelanggan');
+	Route::post('/pelanggan/update/{id}', 'App\Http\Controllers\MemberController@updatePelangganAction')
+			->name('updatePelangganAction');
+	Route::get('/pelanggan/create/', 'App\Http\Controllers\MemberController@createPelanggan')		->name('createPelanggan');
+	Route::post('/pelanggan/create/', 'App\Http\Controllers\MemberController@createPelangganAction')
+			->name('createPelangganAction');
+	Route::delete('/pelanggan/delete/{id}', 'App\Http\Controllers\MemberController@deletePelanggan')
+			->name('deletePelanggan');
 
 	// module outlet
-	Route::get('/outlet', 'App\Http\Controllers\OutletController@getOutlet')->name('getOutlet');
-	Route::get('/outlet/update/{id}', 'App\Http\Controllers\OutletController@updateOutlet')->name('updateOutlet');
-	Route::post('/outlet/update/{id}', 'App\Http\Controllers\OutletController@updateOutletAction')->name('updateOutletAction');
-	Route::get('/outlet/create/', 'App\Http\Controllers\OutletController@createOutlet')->name('createOutlet');
-	Route::post('/outlet/create/', 'App\Http\Controllers\OutletController@createOutletAction')->name('createOutletAction');
-	Route::delete('/outlet/delete/{id}', 'App\Http\Controllers\OutletController@deleteOutlet')->name('deleteOutlet');
+	Route::get('/outlet', 'App\Http\Controllers\OutletController@getOutlet')
+			->name('getOutlet');
+	Route::get('/outlet/update/{id}', 'App\Http\Controllers\OutletController@updateOutlet')
+			->name('updateOutlet');
+	Route::post('/outlet/update/{id}', 'App\Http\Controllers\OutletController@updateOutletAction')
+			->name('updateOutletAction');
+	Route::get('/outlet/create/', 'App\Http\Controllers\OutletController@createOutlet')
+			->name('createOutlet');
+	Route::post('/outlet/create/', 'App\Http\Controllers\OutletController@createOutletAction')
+			->name('createOutletAction');
+	Route::delete('/outlet/delete/{id}', 'App\Http\Controllers\OutletController@deleteOutlet')
+			->name('deleteOutlet');
 	
 	// module paket
-	Route::get('/paket', 'App\Http\Controllers\PaketController@getPaket')->name('getPaket');
-	Route::get('/paket/update/{id}', 'App\Http\Controllers\PaketController@updatePaket')->name('updatePaket');
-	Route::post('/paket/update/{id}', 'App\Http\Controllers\PaketController@updatePaketAction')->name('updatePaketAction');
-	Route::get('/paket/create/', 'App\Http\Controllers\PaketController@createPaket')->name('createPaket');
-	Route::post('/paket/create/', 'App\Http\Controllers\PaketController@createPaketAction')->name('createPaketAction');
-	Route::delete('/paket/delete/{id}', 'App\Http\Controllers\PaketController@deletePaket')->name('deletePaket');
+	Route::get('/paket', 'App\Http\Controllers\PaketController@getPaket')
+			->name('getPaket');
+	Route::get('/paket/update/{id}', 'App\Http\Controllers\PaketController@updatePaket')
+			->name('updatePaket');
+	Route::post('/paket/update/{id}', 'App\Http\Controllers\PaketController@updatePaketAction')
+			->name('updatePaketAction');
+	Route::get('/paket/create/', 'App\Http\Controllers\PaketController@createPaket')
+			->name('createPaket');
+	Route::post('/paket/create/', 'App\Http\Controllers\PaketController@createPaketAction')
+			->name('createPaketAction');
+	Route::delete('/paket/delete/{id}', 'App\Http\Controllers\PaketController@deletePaket')
+			->name('deletePaket');
 
 	
 	// module pengguna
+	Route::get('/pengguna', 'App\Http\Controllers\PenggunaController@getPengguna')
+			->name('getPengguna');
+	Route::get('/pengguna/update/{id}', 'App\Http\Controllers\PenggunaController@updatePengguna')
+			->name('updatePengguna');
+	Route::post('/pengguna/update/{id}', 'App\Http\Controllers\PenggunaController@updatePenggunaAction')->name('updatePenggunaAction');
+	Route::get('/pengguna/create/', 'App\Http\Controllers\PenggunaController@createPengguna')
+			->name('createPengguna');
+	Route::post('/pengguna/create/', 'App\Http\Controllers\PenggunaController@createPenggunaAction')
+			->name('createPenggunaAction');
+	Route::delete('/pengguna/delete/{id}', 'App\Http\Controllers\PenggunaController@deletePengguna')
+			->name('deletePengguna');
 });
