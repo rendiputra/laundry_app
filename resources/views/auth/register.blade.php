@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label for="name">{{ __('Name') }}</label>
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                name="name" value="{{ old('name') }}"">
+                                name="name" value="{{ old('name') }}" autofocus tabindex="1">
                             @error('name')
                             <span class=" invalid-feedback" role="alert">
                             {{ $message }}
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <label for="email">{{ __('Email') }}</label>
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}">
+                                name="email" value="{{ old('email') }}" tabindex="2">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 {{ $message }}
@@ -57,7 +57,7 @@
                             <label for="password">{{ __('Password') }}</label>
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password"
-                                autocomplete="new-password">
+                                autocomplete="new-password" tabindex="3">
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 {{ $message }}
@@ -67,7 +67,7 @@
 
                         <div class="form-group">
                             <label for="password">{{ __('Confirm Password') }}</label>
-                            <input id="password" type="password" class="form-control" name="password_confirmation">
+                            <input id="password" type="password" class="form-control" name="password_confirmation" tabindex="4">
                             <div class="invalid-feedback">
                             </div>
                         </div>

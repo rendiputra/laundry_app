@@ -22,7 +22,7 @@ class PaketController extends Controller
 
     public function getPaket() {
         $data = DB::table('tb_paket')
-        ->join('tb_outlet', 'tb_paket.id_paket', '=', 'tb_outlet.id_outlet')
+        ->join('tb_outlet', 'tb_paket.id_outlet', '=', 'tb_outlet.id_outlet')
         ->where([
             ['tb_paket.id_outlet', '=', Auth::User()->id_outlet],
             ['tb_paket.status', '=', 1],

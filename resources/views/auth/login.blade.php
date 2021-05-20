@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <label for="email">{{ __('Email') }}</label>
                             <input type="email" id="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" autofocus />
+                                name="email" value="{{ old('email') }}" autofocus tabindex="1"/>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 {{ $message }}

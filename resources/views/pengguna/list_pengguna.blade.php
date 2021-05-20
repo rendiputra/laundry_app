@@ -38,8 +38,9 @@
               <thead>
               <tr>
                 <th style="width: 15%">Nama User</th>
-                <th style="width: 30%">Email</th>
-                <th style="width: 25%">Cabang Outlet</th>
+                <th style="width: 25%">Email</th>
+                <th style="width: 20%">Cabang Outlet</th>
+                <th style="width: 10%">Hak akses</th>
                 <th style="width: 20%">Action</th>
               </tr>
               </thead>
@@ -51,14 +52,23 @@
                 <td>{{$d->email}}</td>
                 <td>{{$d->nama}}</td>
                 <td>
+                  @if ($d->isAdmin == 0)
+                    Owner
+                  @elseif ($d->isAdmin == 1)
+                    Kasir
+                  @elseif ($d->isAdmin == 2)
+                    Admin
+                  @endif
+                </td>
+                <td>
                     {{-- <div class="row">
                         
                     </div> --}}
-                    <form class="row" method="POST" action="{{route('deletePaket',$d->id)}}">
-                        <a href="{{route('updatePaket', $d->id)}}" class="btn btn-primary mt-1 ml-3">Update</a>
+                    <form class="row" method="POST" action="{{route('deletePengguna',$d->id)}}">
+                        <a href="{{route('updatePengguna', $d->id)}}" class="btn btn-primary mt-1 ml-3">Update</a>
                         @csrf
                         @method('delete')
-                        <button type="submit"  class="btn btn-danger ml-3 mt-1">Delete</button>
+                        <button type="submit"  class="btn btn-danger ml-3 mt-1">Non Aktifkan</button>
                   </form>
                 </td>
               </tr>
