@@ -14,8 +14,14 @@
                 <!-- menu item -->
                 <li class="{{ Route::is('dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}">
-                        <i class="fas fa-fire"></i>
+                        <i class="fas fa-home"></i>
                         <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="{{ Route::is('getTransaksi', 'createTransaksi', 'updateTransaksi') ? 'active' : '' }}">
+                    <a href="{{ route('getTransaksi') }}">
+                        <i class="fas fa-balance-scale"></i>
+                        <span>Transaksi</span>
                     </a>
                 </li>
                 <li class="{{ Route::is('getPaket', 'createPaket', 'updatePaket') ? 'active' : '' }}">

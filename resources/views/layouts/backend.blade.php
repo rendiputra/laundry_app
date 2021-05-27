@@ -44,13 +44,13 @@
   <script src="{{ asset('stisla/modules/moment.min.js') }}"></script>
   <script src="{{ asset('stisla/js/stisla.js') }}"></script>
 
-  <!-- Plugins -->
-  @yield('plugin')
   <!-- Page Specific JS File -->
   @yield('js')
   <!-- Template JS File -->
   <script src="{{ asset('stisla/js/scripts.js') }}"></script>
   <script src="{{ asset('stisla/js/custom.js') }}"></script>
+  <!-- Plugins -->
+  @yield('plugin')
 </body>
 
 </html>

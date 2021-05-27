@@ -75,4 +75,9 @@ Route::middleware('auth', 'verified')->group(function () {
 			->name('createPenggunaAction');
 	Route::delete('/pengguna/delete/{id}', 'App\Http\Controllers\PenggunaController@deletePengguna')
 			->name('deletePengguna');
+
+
+	// Entri Transaksi
+	Route::get('/transaksi', 'App\Http\Controllers\TransaksiController@getTransaksi')
+			->name('getTransaksi');
 });
