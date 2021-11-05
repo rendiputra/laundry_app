@@ -77,7 +77,14 @@ Route::middleware('auth', 'verified')->group(function () {
 			->name('deletePengguna');
 
 
-	// Entri Transaksi
+	// Module Transaksi
 	Route::get('/transaksi', 'App\Http\Controllers\TransaksiController@getTransaksi')
 			->name('getTransaksi');
+	Route::get('/transaksi/create', 'App\Http\Controllers\TransaksiController@createTransaksi')
+			->name('createTransaksi');
+			Route::post('/transaksi/create', 'App\Http\Controllers\TransaksiController@createTransaksiAction')
+			->name('createTransaksiAction');
+	Route::get('/transaksi/DetailTransaksi/{id}', 'App\Http\Controllers\TransaksiController@getDetailTransaksi')
+			->name('getDetailTransaksi');
 });
+		

@@ -19,7 +19,7 @@
           <h4>List History Transaksi</h4>
         </div>
         <div class="card-body">
-          <a href="{{route('createPengguna')}}" class="btn btn-primary mb-4">Entri Transaksi Baru</a>
+          <a href="{{route('createTransaksi')}}" class="btn btn-primary mb-4">Entri Transaksi Baru</a>
           
 @if (\Session::has('error'))
           <div class="alert alert-warning alert-dismissible">
@@ -38,14 +38,14 @@
           </div>
 @endif
           <div class="table-responsive">
-            <table id="dataTable" class="table table-bordered table-md bg-white dataTable">
+            <table id="dataTable" class="table table-striped table-md bg-white dataTable">
               <thead>
               <tr>
-                <th style="width: 15%">Nama</th>
-                <th style="width: 15%">Tanggal</th>
+                <th style="width: 25%">Nama</th>
+                <th style="width: 20%">Tanggal</th>
                 <th style="width: 10%">Dibayar</th>
                 <th style="width: 20%">Total Biaya</th>
-                <th style="width: 30%">Action</th>
+                <th style="width: 25%">Action</th>
               </tr>
               </thead>
               <tbody>
@@ -72,7 +72,7 @@
                   
                   <form class="row" method="POST" action="#">
                     <a href="#" class="btn btn-primary mt-1 ml-2">Update</a>
-                    <a href="#" class="btn btn-info mt-1 ml-2">Detail Transaksi</a>
+                    <a href="{{route('getDetailTransaksi', $d->id_transaksi)}}" class="btn btn-info mt-1 ml-2">Detail Transaksi</a>
                     @if($d->dibayar == 0)
                       @csrf
                       @method('delete')
