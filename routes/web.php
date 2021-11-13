@@ -6,6 +6,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\TransaksiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,13 +83,13 @@ Route::middleware('auth', 'verified')->group(function () {
 
 
 	// Module Transaksi
-	Route::get('/transaksi', 'App\Http\Controllers\TransaksiController@getTransaksi')
+	Route::get('/transaksi', [TransaksiController::class, 'getTransaksi'])
 			->name('getTransaksi');
-	Route::get('/transaksi/create', 'App\Http\Controllers\TransaksiController@createTransaksi')
+	Route::get('/transaksi/create', [TransaksiController::class, 'createTransaksi'])
 			->name('createTransaksi');
-			Route::post('/transaksi/create', 'App\Http\Controllers\TransaksiController@createTransaksiAction')
+			Route::post('/transaksi/create', [TransaksiController::class, 'createTransaksiAction'])
 			->name('createTransaksiAction');
-	Route::get('/transaksi/DetailTransaksi/{id}', 'App\Http\Controllers\TransaksiController@getDetailTransaksi')
+	Route::get('/transaksi/DetailTransaksi/{id}', [TransaksiController::class, 'getDetailTransaksi'])
 			->name('getDetailTransaksi');
 });
 		
