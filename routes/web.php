@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\OutletController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,17 +37,17 @@ Route::middleware('auth', 'verified')->group(function () {
 			->name('deletePelanggan');
 
 	// module outlet
-	Route::get('/outlet', 'App\Http\Controllers\OutletController@getOutlet')
+	Route::get('/outlet', [OutletController::class, 'getOutlet'])
 			->name('getOutlet');
-	Route::get('/outlet/update/{id}', 'App\Http\Controllers\OutletController@updateOutlet')
+	Route::get('/outlet/update/{id}', [OutletController::class, 'updateOutlet'])
 			->name('updateOutlet');
-	Route::post('/outlet/update/{id}', 'App\Http\Controllers\OutletController@updateOutletAction')
+	Route::post('/outlet/update/{id}', [OutletController::class, 'updateOutletAction'])
 			->name('updateOutletAction');
-	Route::get('/outlet/create/', 'App\Http\Controllers\OutletController@createOutlet')
+	Route::get('/outlet/create/', [OutletController::class, 'createOutlet'])
 			->name('createOutlet');
-	Route::post('/outlet/create/', 'App\Http\Controllers\OutletController@createOutletAction')
+	Route::post('/outlet/create/', [OutletController::class, 'createOutletAction'])
 			->name('createOutletAction');
-	Route::delete('/outlet/delete/{id}', 'App\Http\Controllers\OutletController@deleteOutlet')
+	Route::delete('/outlet/delete/{id}', [OutletController::class, 'deleteOutlet'])
 			->name('deleteOutlet');
 	
 	// module paket
