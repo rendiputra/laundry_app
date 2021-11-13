@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OutletController;
+use App\Http\Controllers\PaketController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,17 +52,17 @@ Route::middleware('auth', 'verified')->group(function () {
 			->name('deleteOutlet');
 	
 	// module paket
-	Route::get('/paket', 'App\Http\Controllers\PaketController@getPaket')
+	Route::get('/paket', [PaketController::class, 'getPaket'])
 			->name('getPaket');
-	Route::get('/paket/update/{id}', 'App\Http\Controllers\PaketController@updatePaket')
+	Route::get('/paket/update/{id}', [PaketController::class, 'updatePaket'])
 			->name('updatePaket');
-	Route::post('/paket/update/{id}', 'App\Http\Controllers\PaketController@updatePaketAction')
+	Route::post('/paket/update/{id}', [PaketController::class, 'updatePaketAction'])
 			->name('updatePaketAction');
-	Route::get('/paket/create/', 'App\Http\Controllers\PaketController@createPaket')
+	Route::get('/paket/create/', [PaketController::class, 'createPaket'])
 			->name('createPaket');
-	Route::post('/paket/create/', 'App\Http\Controllers\PaketController@createPaketAction')
+	Route::post('/paket/create/', [PaketController::class, 'createPaketAction'])
 			->name('createPaketAction');
-	Route::delete('/paket/delete/{id}', 'App\Http\Controllers\PaketController@deletePaket')
+	Route::delete('/paket/delete/{id}', [PaketController::class, 'deletePaket'])
 			->name('deletePaket');
 
 	
