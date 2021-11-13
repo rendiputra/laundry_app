@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MemberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,16 +23,16 @@ Route::middleware('auth', 'verified')->group(function () {
 			->name('profile');
 
 	// module pelanggan
-	Route::get('/pelanggan', 'App\Http\Controllers\MemberController@getPelanggan')
+	Route::get('/pelanggan', [MemberController::class, 'getPelanggan'])
 			->name('getPelanggan');
-	Route::get('/pelanggan/update/{id}', 'App\Http\Controllers\MemberController@updatePelanggan')
+	Route::get('/pelanggan/update/{id}', [MemberController::class, 'updatePelanggan'])
 			->name('updatePelanggan');
-	Route::post('/pelanggan/update/{id}', 'App\Http\Controllers\MemberController@updatePelangganAction')
+	Route::post('/pelanggan/update/{id}', [MemberController::class, 'updatePelangganAction'])
 			->name('updatePelangganAction');
-	Route::get('/pelanggan/create/', 'App\Http\Controllers\MemberController@createPelanggan')		->name('createPelanggan');
-	Route::post('/pelanggan/create/', 'App\Http\Controllers\MemberController@createPelangganAction')
+	Route::get('/pelanggan/create/', [MemberController::class, 'createPelanggan'])		->name('createPelanggan');
+	Route::post('/pelanggan/create/', [MemberController::class, 'createPelangganAction'])
 			->name('createPelangganAction');
-	Route::delete('/pelanggan/delete/{id}', 'App\Http\Controllers\MemberController@deletePelanggan')
+	Route::delete('/pelanggan/delete/{id}', [MemberController::class, 'deletePelanggan'])
 			->name('deletePelanggan');
 
 	// module outlet
