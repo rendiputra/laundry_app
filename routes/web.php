@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
+use App\Http\Controllers\PenggunaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,16 +68,16 @@ Route::middleware('auth', 'verified')->group(function () {
 
 	
 	// module pengguna
-	Route::get('/pengguna', 'App\Http\Controllers\PenggunaController@getPengguna')
+	Route::get('/pengguna', [PenggunaController::class, 'getPengguna'])
 			->name('getPengguna');
-	Route::get('/pengguna/update/{id}', 'App\Http\Controllers\PenggunaController@updatePengguna')
+	Route::get('/pengguna/update/{id}', [PenggunaController::class, 'updatePengguna'])
 			->name('updatePengguna');
-	Route::post('/pengguna/update/{id}', 'App\Http\Controllers\PenggunaController@updatePenggunaAction')->name('updatePenggunaAction');
-	Route::get('/pengguna/create/', 'App\Http\Controllers\PenggunaController@createPengguna')
+	Route::post('/pengguna/update/{id}', [PenggunaController::class, 'updatePenggunaAction'])->name('updatePenggunaAction');
+	Route::get('/pengguna/create/', [PenggunaController::class, 'createPengguna'])
 			->name('createPengguna');
-	Route::post('/pengguna/create/', 'App\Http\Controllers\PenggunaController@createPenggunaAction')
+	Route::post('/pengguna/create/', [PenggunaController::class, 'createPenggunaAction'])
 			->name('createPenggunaAction');
-	Route::delete('/pengguna/delete/{id}', 'App\Http\Controllers\PenggunaController@deletePengguna')
+	Route::delete('/pengguna/delete/{id}', [PenggunaController::class, 'deletePengguna'])
 			->name('deletePengguna');
 
 
